@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { ApiContext } from '../../utils/api_context';
-
 import { Button } from '../common/button';
 import { useMessages } from '../../utils/use_messages';
+import { Message } from './message'; 
 
 export const ChatRoom = () => {
   const [chatRoom, setChatRoom] = useState(null);
@@ -12,30 +12,29 @@ export const ChatRoom = () => {
   const [user, setUser] = useState(null);
   const api = useContext(ApiContext);
   const { id } = useParams();
-  console.log(id);
   const [messages, sendMessage] = useMessages(chatRoom);
 
   useEffect(async () => {
-    const { user } = await api.get('/users/me');
-    setUser(user);
+    setLoading(true);
+    if (!user) {
+      const { user } = await api.get('/users/me');
+      setUser(user);
+    }
     const { chatRoom } = await api.get(`/chat_rooms/${id}`);
     setChatRoom(chatRoom);
     setLoading(false);
-  }, []);
+  }, [id]);
 
   if (loading) return 'Loading...';
 
   return (
-    <div>
-      <div>
-        {messages.map((message) => (
-          <div key={message.id}>
-            <h3>{message.userName}</h3>
-            {message.contents}
-          </div>
+    <div className="chat-container">
+      <div className="messages">
+        {[...messages].reverse().map((message) => (
+          <Message key={message.id} message={message} />
         ))}
       </div>
-      <div>
+      <div className="chat-input">
         <input type="text" value={contents} onChange={(e) => setContents(e.target.value)} />
         <Button onClick={() => sendMessage(contents, user)}>Send</Button>
       </div>

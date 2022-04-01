@@ -8,7 +8,6 @@ import { ChatRoom } from '../chat_room/_chat_room';
 import { NewRoomModal } from './new_room_modal';
 import { Header } from '../common/header';
 import mapboxgl from 'mapbox-gl';
-import { resolveModuleNameFromCache } from 'typescript';
 
 export const Home = () => {
   const api = useContext(ApiContext);
@@ -68,7 +67,7 @@ export const Home = () => {
 
 
   return (
-    <div className="container">
+    <div className="my-container">
       <div className="head-container">
         <Header></Header>
       </div>
@@ -89,7 +88,7 @@ export const Home = () => {
             <Route path="/*" element={<div>Select a room to get started</div>} />
           </Routes>
         </div>
-        {isOpen ? <NewRoomModal createRoom={createRoom} /> : null}
+        {isOpen ? <NewRoomModal createRoom={createRoom} closeModal={() => setIsOpen(false)} /> : null}
         </div>
     </div>
   );

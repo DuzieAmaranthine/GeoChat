@@ -24,11 +24,11 @@ export class addChatRoom1648694338186 implements MigrationInterface {
               },
               {
                 name: 'long',
-                type: 'int',
+                type: 'float',
               },
               {
                 name: 'lat',
-                type: 'int',
+                type: 'float',
               },
             ],
           }),

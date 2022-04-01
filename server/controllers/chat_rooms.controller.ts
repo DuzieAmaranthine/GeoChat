@@ -32,7 +32,10 @@ export class ChatRoomsController {
     chatRoom.roomkey = crypto.randomBytes(8).toString('hex');
     chatRoom.long = body.longitude;
     chatRoom.lat = body.latitude;
+    
     chatRoom = await this.chatRoomsService.create(chatRoom);
+    console.log(chatRoom);
+
     return { chatRoom };
   }
 }
