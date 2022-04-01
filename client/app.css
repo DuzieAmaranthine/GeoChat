@@ -4,9 +4,17 @@
 
 @tailwind utilities;
 
+
 :root {
-  --primary-color: #5D4089;
-  --dark-background: #424242;
+  --vDarkBlue: #010039;
+  --wDarkBlue: #031268;
+  --darkBlue: #0129a8;
+  --vDarkMagenta: #300d2a;
+  --darkMagenta: #661b72;
+  --modMagenta: #b53d72;
+  --modPink: #d5466f;
+  --softRed: #fd9c7d;
+  --vSoftYellow: #feeeb2;
 }
 
 #app {
@@ -15,23 +23,42 @@
   height: 100vh;
 }
 
+.my-container {
+  background-color: var(--darkMagenta);
+}
+
 .header {
-  background-color: red;
-  height: 120px;
+  background-image: url("https://i.ibb.co/Jr6qvzP/background.png");
+  /* background-image: url("https://i.ibb.co/VjhszsQ/cherry-Banner.jpg"); */
+  background-size: contain;
+  background-image: -webkit-gradient();
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: #010039;
+  box-shadow: 1px 1px 6px 1px var(--wDarkBlue);
+
+  height: 140px;
   width: 100vw;
   display: flex;
   flex-direction: column;
   padding-top: 12px;
   padding-left: 30px;
+
+  margin-bottom: 12px;
 }
 
 .title {
-  font-size: xx-large;
+  font-size: 45px;
+  color: var(--vSoftYellow);
+  text-shadow: 0 0 3px var(--softRed);
 }
 
 .coordTag {
-  font-size: large;
+  font-size: medium;
+  color: white;
+  text-shadow:3px black;
 }
+
 
 .body-container{
   display: inline;
@@ -41,26 +68,40 @@
 .side-bar {
   height: 100vh;
   width: 120px;
-  background-color: var(--dark-background);
+  background: rgb(1,41,168);
+  background: linear-gradient(0deg, rgba(1,0,57,1) 0%, rgba(3,18,104,1) 41%, rgba(1,41,168,1) 61%);
   padding-top: 16px;
   padding-left: 10px;
   display: flex;
   flex-direction: column;
   float: left;
+  margin-right: 16px;
 }
 
 .room {
-  background-color: var(--primary-color);
+  background: var(--softRed);
+  background: radial-gradient(circle, rgba(253,156,125,1) 0%, rgba(213,70,111,1) 100%);
+  border-style: double;
+  border-color: var(--vDarkMagenta);
+  border-width: 6px;
   width: 96px;
   height: 96px;
   border-radius: 8px;
+  text-align: center;
   color: white;
   margin-bottom: 16px;
   font-size: 16px;
 }
 
+.room:hover {
+  background: radial-gradient(circle, var(--vSoftYellow) 0%, var(--softRed) 100%);
+}
+
 .chat-window {
-  background-color: pink;
+  background-color: var(--modPink);
+  text-align: center;
+  font-size: xx-large;
+  color: white;
   height: 100vh;
   display: flex;
   flex-direction: column;
