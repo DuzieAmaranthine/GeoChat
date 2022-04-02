@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, useRef } from 'react';
 import { ApiContext } from '../../utils/api_context';
-import { Button } from '../common/button';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Rooms } from './rooms';
 import { Room } from './room';
@@ -9,16 +8,20 @@ import { NewRoomModal } from './new_room_modal';
 import { Header } from '../common/header';
 import mapboxgl from 'mapbox-gl';
 
+mapboxgl.accessTOken = 'pk.eyJ1IjoiamVzc2x5bm45IiwiYSI6ImNsMWg3NWp1bjAyY2QzamxpcDl6aTNpZncifQ.dSLXsFNzpP8EBuC_Cf1AUw';
+
 export const Home = () => {
   const api = useContext(ApiContext);
 
 
   const [chatRooms, setChatRooms] = useState([]);
   const [location, setLocation] = useState(null);
-  const [distance, setDistrance] = useState(25);
+  const [distance, setDistance] = useState(50);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const mapContainer = useRef(null);
+
 
   useEffect(async () => {
     const res = await api.get('/users/me');
@@ -27,6 +30,12 @@ export const Home = () => {
 
     navigator.geolocation.getCurrentPosition((location) => {
       setLocation(location.coords);
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [location.coords.longitude, location.coords.latitude],
+        zoom: 9
+      });
     });
 
     const { chatRooms } = await api.get('/chat_rooms');
@@ -36,7 +45,7 @@ export const Home = () => {
   useEffect(async () => {
     let nearbyRooms = [];
     if (location) {
-      const userLocation = new mapboxgl.LngLat(location.longitude, location.latitude)
+      const userLocation = new mapboxgl.LngLat(-70.9, 42.35);
       for (let room of chatRooms) {
         const roomLocation = new mapboxgl.LngLat(room.longitude, room.latitude);
         const distance = .62137 * userLocation.distanceTo(roomLocation) / 1000;
@@ -87,6 +96,7 @@ export const Home = () => {
             <Route path="chat_rooms/:id" element={<ChatRoom />} />
             <Route path="/*" element={<div>Select a room to get started</div>} />
           </Routes>
+          <div className="map-container" id="map" />
         </div>
         {isOpen ? <NewRoomModal createRoom={createRoom} closeModal={() => setIsOpen(false)} /> : null}
         </div>
