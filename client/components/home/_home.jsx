@@ -6,21 +6,17 @@ import { Room } from './room';
 import { ChatRoom } from '../chat_room/_chat_room';
 import { NewRoomModal } from './new_room_modal';
 import { Header } from '../common/header';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
-
-mapboxgl.accessTOken = 'pk.eyJ1IjoiamVzc2x5bm45IiwiYSI6ImNsMWg3NWp1bjAyY2QzamxpcDl6aTNpZncifQ.dSLXsFNzpP8EBuC_Cf1AUw';
 
 export const Home = () => {
   const api = useContext(ApiContext);
-
-
   const [chatRooms, setChatRooms] = useState([]);
   const [location, setLocation] = useState(null);
-  const [distance, setDistance] = useState(50);
+  const [dist, setDist] = useState(50);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  const mapContainer = useRef(null);
 
 
   useEffect(async () => {
@@ -29,13 +25,7 @@ export const Home = () => {
     setLoading(false);
 
     navigator.geolocation.getCurrentPosition((location) => {
-      setLocation(location.coords);
-      const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [location.coords.longitude, location.coords.latitude],
-        zoom: 9
-      });
+      setLocation(location.coords);      
     });
 
     const { chatRooms } = await api.get('/chat_rooms');
@@ -44,12 +34,14 @@ export const Home = () => {
 
   useEffect(async () => {
     let nearbyRooms = [];
-    if (location) {
-      const userLocation = new mapboxgl.LngLat(-70.9, 42.35);
+    if (location && chatRooms) {
+      console.log(location);
+      const userMB = new mapboxgl.LngLat(location.longitude, location.latitude);
       for (let room of chatRooms) {
-        const roomLocation = new mapboxgl.LngLat(room.longitude, room.latitude);
-        const distance = .62137 * userLocation.distanceTo(roomLocation) / 1000;
-        if (distance < setDistance) {
+        console.log(room);
+        const roomLocation = new mapboxgl.LngLat(room.long, room.lat);
+        const distance = .62137 * userMB.distanceTo(roomLocation) / 1000;
+        if (distance <= dist) {
           nearbyRooms.push(room);
         }
       }
@@ -74,7 +66,6 @@ export const Home = () => {
   };
 
 
-
   return (
     <div className="my-container">
       <div className="head-container">
@@ -94,9 +85,8 @@ export const Home = () => {
         <div className="chat-window">
           <Routes>
             <Route path="chat_rooms/:id" element={<ChatRoom />} />
-            <Route path="/*" element={<div>Select a room to get started</div>} />
+            <Route path="/*" element={<div className="inst">Select a room to get started</div>} />
           </Routes>
-          <div className="map-container" id="map" />
         </div>
         {isOpen ? <NewRoomModal createRoom={createRoom} closeModal={() => setIsOpen(false)} /> : null}
         </div>
