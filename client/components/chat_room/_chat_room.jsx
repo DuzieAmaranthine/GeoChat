@@ -35,8 +35,8 @@ export const ChatRoom = () => {
         ))}
       </div>
       <div className="chat-input">
-        <input type="text" value={contents} onChange={(e) => setContents(e.target.value)} />
-        <Button onClick={() => sendMessage(contents, user)}>Send</Button>
+        <input className="input-box" type="text" value={contents} onChange={(e) => setContents(e.target.value)} />
+        <button className="chat-button" onClick={() => sendMessage(contents, user)}>Send</button>
       </div>
     </div>
   );

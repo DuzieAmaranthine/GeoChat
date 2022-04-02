@@ -19,8 +19,6 @@
 
 #app {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
 }
 
 .my-container {
@@ -37,7 +35,7 @@
   background-color: #010039;
   box-shadow: 1px 1px 6px 1px var(--wDarkBlue);
 
-  height: 140px;
+  height: 20vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -66,7 +64,7 @@
 }
 
 .side-bar {
-  height: 100vh;
+  height: 79vh;
   width: 120px;
   background: rgb(1,41,168);
   background: linear-gradient(0deg, rgba(1,0,57,1) 0%, rgba(3,18,104,1) 41%, rgba(1,41,168,1) 61%);
@@ -98,15 +96,73 @@
 }
 
 .chat-window {
-  background-color: var(--modPink);
-  text-align: center;
+  background-color: var(--modMagenta);
+  text-align: left;
   font-size: xx-large;
   color: white;
-  height: 100vh;
+  height: 79vh;
   display: flex;
   flex-direction: column;
 }
 
+.user-name {
+  background-color: var(--modPink);
+  border-bottom: var(--vDarkMagenta);
+  border-bottom-style: double;
+  border-bottom-width: 3px;
+}
+
+.message {
+  font-size: large;
+  background-color: var(--modPink);
+  padding-left: 10px;
+  margin: 10px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-items: end;
+}
+
+.messages {
+  overflow-y: scroll;
+  height: 62vh;
+}
+
+/* Chat Box */
+.input-box {
+  width: 100%;
+  font-size: medium;
+  color: black;
+  padding: 10px;
+}
+
+.chat-input {
+  background-color: white;
+  margin: 10px;
+}
+
+
+/* Chat Button */
+.chat-button {
+  justify-self: right;
+  border-radius: 6px;
+  background-color: var(--darkBlue);
+  color: #FFFFFF;
+  text-align: center;
+  text-shadow: 3px var(--vSoftYellow);
+  font-size: large;
+  padding: 10px;
+  width: 100px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.chat-button:hover {
+  background-color: var(--vDarkBlue);
+}
+
+
+/* Modal */
 .overlay {
   position: fixed;
   top: 0;
