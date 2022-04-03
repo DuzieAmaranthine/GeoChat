@@ -54,6 +54,13 @@ export const Home = () => {
     return <div>Loading...</div>;
   }
 
+  const logout = async () => {
+    const res = await api.del('/sessions');
+    if (res.success) {
+      setAuthToken(null);
+    }
+  };
+
   const createRoom = async (name) => {
     const sendRoom = {
       name: name,
@@ -69,7 +76,7 @@ export const Home = () => {
   return (
     <div className="my-container">
       <div className="head-container">
-        <Header></Header>
+        <Header logout={logout}></Header>
       </div>
       <div className="body-container">
         <Rooms>

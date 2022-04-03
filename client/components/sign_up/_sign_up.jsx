@@ -55,32 +55,35 @@ export const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-row justify-center m-4">
-      <div className="w-96">
-        <Paper>
-          <div>First Name</div>
-          <Input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-          <div>Last Name</div>
-          <Input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-          <div>Email</div>
-          <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <div>Confirm Email</div>
-          <Input type="email" value={emailConfirmation} onChange={(e) => setEmailConfirmation(e.target.value)} />
-          <div>Password</div>
-          <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <div>Confirm Password</div>
-          <Input
-            type="password"
-            value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-          />
-          <div className="flex flex-row justify-end mt-2">
-            <Button type="button" onClick={signUp}>
-              Sign up
-            </Button>
-          </div>
-          <div className="flex">{errorMessage}</div>
-        </Paper>
+    <div>
+      <h1 className="Title">GeoChat</h1>
+      <div className="my-sign">
+        <div className="w-96">
+          <Paper>
+            <div>First Name</div>
+            <Input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+            <div>Last Name</div>
+            <Input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+            <div>Email</div>
+            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <div>Confirm Email</div>
+            <Input type="email" value={emailConfirmation} onChange={(e) => setEmailConfirmation(e.target.value)} />
+            <div>Password</div>
+            <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <div>Confirm Password</div>
+            <Input
+              type="password"
+              value={passwordConfirmation}
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
+            />
+            <div className="flex flex-row justify-end mt-2">
+              <Button type="button" onClick={signUp}>
+                Sign up
+              </Button>
+            </div>
+            <div className="flex">{errorMessage}</div>
+          </Paper>
+        </div>
       </div>
     </div>
   );

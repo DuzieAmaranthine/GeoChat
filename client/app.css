@@ -21,8 +21,56 @@
   position: absolute;
 }
 
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-image: url("https://i.ibb.co/Vv8fJvY/cherry-Night-Flip.jpg");
+  background-color: var(--vDarkBlue);
+  background-size: cover;
+}
+
+.my-sign {
+  position: absolute;
+  background: rgb(1,0,57);
+  background: linear-gradient(135deg, rgba(1,0,57,1) 25%, rgba(1,41,168,1) 46%, rgba(3,18,104,1) 63%, rgba(1,0,57,1) 86%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 2px 2px 8px 3px var(--softRed);
+}
+
+.button-div {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.lantern {
+  background: var(--softRed);
+  background: radial-gradient(circle, rgba(253,156,125,1) 0%, rgba(213,70,111,1) 100%);
+  border-style: double;
+  border-color: var(--vDarkMagenta);
+  border-width: 6px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  margin-bottom: 16px;
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.lantern:hover {
+  background: radial-gradient(circle, var(--vSoftYellow) 0%, var(--softRed) 100%);
+}
+
 .my-container {
   background-color: var(--darkMagenta);
+  overflow: hidden;
 }
 
 .header {
@@ -43,6 +91,22 @@
   padding-left: 30px;
 
   margin-bottom: 12px;
+}
+
+.exit-div {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.exit {
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  font-size: small;
+  background-color: var(--modPink);
+  border-radius: 8px;
+  color: white;
+  margin: 6px;
 }
 
 .title {
@@ -71,9 +135,14 @@
   padding-top: 16px;
   padding-left: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   float: left;
   margin-right: 16px;
+  overflow-y: scroll;
+}
+
+.side-bar::-webkit-scrollbar {
+  width: 0 !important;
 }
 
 .room {
@@ -129,16 +198,22 @@
   height: 62vh;
 }
 
+.messages::-webkit-scrollbar {
+  width: 0 !important;
+}
+
 /* Chat Box */
 .input-box {
   width: 100%;
   font-size: medium;
   color: black;
+  border-radius: 6px;
   padding: 10px;
 }
 
 .chat-input {
   background-color: white;
+  border-radius: 6px;
   margin: 10px;
 }
 
@@ -189,7 +264,8 @@
   flex-direction: column;
   font-size: 24px;
   width: 500px;
-  background-color: white;
+  background: rgb(1,0,57);
+  background: linear-gradient(135deg, rgba(1,0,57,1) 30%, rgba(1,41,168,1) 77%, rgba(181,61,114,1) 92%);
   padding: 16px;
 }
 
@@ -197,7 +273,6 @@
   margin-bottom: 16px;
   padding: 8px;
   border-radius: 8px;
-  border: 1px solid #ccc;
 }
 
 .button-container {
@@ -205,15 +280,8 @@
   justify-content: flex-end;
 }
 
-.button-container button:nth-of-type(1) {
-  background-color: white;
-  color: black;
-  margin-right: 8px;
-}
 
-.button-container button:nth-of-type(1):hover {
-  background-color: lightgray;
-}
+/* Map */
 
 /* #map {
   width: 100%;
@@ -228,4 +296,17 @@
   border-bottom-style: double;
   margin-bottom: 10px;
   color: white;
+}
+
+
+/* Sign-In */
+.sign-in-container {
+  background-color: #010039;
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
 }

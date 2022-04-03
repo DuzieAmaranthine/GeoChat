@@ -4,6 +4,7 @@ import { AuthContext } from '../../utils/auth_context';
 import { Paper } from '../common/paper';
 import { Input } from '../common/input';
 import { Button } from '../common/button';
+import { Header } from '../common/header';
 
 export const SignIn = () => {
   const [, setAuthToken] = useContext(AuthContext);
@@ -36,23 +37,25 @@ export const SignIn = () => {
   };
 
   return (
-    <div className="flex flex-row justify-center m-4">
-      <div className="w-96">
-        <Paper>
-          <div>Email</div>
-          <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <div>Password</div>
-          <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <div className="flex flex-row justify-end mt-2">
-            <Button type="button" onClick={goToSignUp}>
-              Sign up
-            </Button>
-            <div className="pl-2" />
-            <Button type="button" onClick={signIn}>
-              Sign in
-            </Button>
-          </div>
-        </Paper>
+    <div>
+      <h1 className="Title">GeoChat</h1>
+      <div className="my-sign">
+        <div className="w-96">
+          <Paper>
+            <div>Email</div>
+            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <div>Password</div>
+            <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <div className="button-div">
+              <Button type="button" onClick={goToSignUp}>
+                Sign up
+              </Button>
+              <Button type="button" onClick={signIn}>
+                Sign in
+              </Button>
+            </div>
+          </Paper>
+        </div>
       </div>
     </div>
   );

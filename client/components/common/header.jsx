@@ -6,6 +6,9 @@ export const Header =({ logout, roomTitle }) => {
     <div className="header">
       <h1 className="title">GeoChat</h1>
       <h2 className="coordTag">Why talk to the people nearby when you can just chat them virtually?</h2>
+      <div className="exit-div">
+        <button onClick={logout} className="exit">logout</button>
+      </div>
     </div>
   )
 }
