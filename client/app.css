@@ -75,21 +75,18 @@ body {
 
 .header {
   background-image: url("https://i.ibb.co/Jr6qvzP/background.png");
-  /* background-image: url("https://i.ibb.co/VjhszsQ/cherry-Banner.jpg"); */
   background-size: contain;
   background-image: -webkit-gradient();
   background-repeat: no-repeat;
   background-position: right;
   background-color: #010039;
   box-shadow: 1px 1px 6px 1px var(--wDarkBlue);
-
   height: 20vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   padding-top: 12px;
   padding-left: 30px;
-
   margin-bottom: 12px;
 }
 
@@ -308,7 +305,7 @@ body {
 }
 
 
-/* Sign-In */
+/* Sign-In & Sign-Up */
 .sign-in-container {
   background-color: #010039;
 }

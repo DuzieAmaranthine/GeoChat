@@ -46,7 +46,6 @@ export const Home = () => {
     let nearbyRooms = [];
     if (location && chatRooms) {
       const userLocation = new mapboxgl.LngLat(-70.9, 42.35);
-      // console.log(location);
       const userMB = new mapboxgl.LngLat(location.longitude, location.latitude);
       for (let room of chatRooms) {
         console.log(room);
