@@ -98,7 +98,7 @@ body {
   flex-direction: row-reverse;
 }
 
-.exit {
+.exit-home {
   display: flex;
   justify-content: center;
   width: 50px;
@@ -107,6 +107,10 @@ body {
   border-radius: 8px;
   color: white;
   margin: 6px;
+}
+
+.exit-home:hover {
+  background-color: var(--modMagenta);
 }
 
 .title {
