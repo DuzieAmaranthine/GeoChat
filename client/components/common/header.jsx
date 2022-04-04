@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
+import { Room } from "../home/room";
 
-export const Header =({ logout, roomTitle }) => {
+export const Header =({ logout, name }) => {
   const navigate = useNavigate();
   return(
     <div className="header">

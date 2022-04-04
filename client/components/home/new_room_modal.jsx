@@ -24,7 +24,7 @@ export const NewRoomModal = ({ createRoom, closeModal }) => {
               <Button onClick={closeModal}>Close</Button>
               <Button onClick={save}>Create</Button>
             </div>
-            {error && <div>Name cannot be blank</div>}
+            {error && <div className="err">Name cannot be blank</div>}
           </div>
         </div>
       </div>

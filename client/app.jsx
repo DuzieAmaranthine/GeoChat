@@ -8,6 +8,9 @@ import { useJwtRefresh } from './utils/use_jwt_refresh';
 import { RolesContext } from './utils/roles_context';
 import { parseJwt } from './utils/parse_jwt';
 import './app.css';
+import mapboxgl from 'mapbox-gl';
+import { map } from 'lodash';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 export const App = () => {
   const [authToken, setAuthToken] = useState(null);
@@ -15,6 +18,24 @@ export const App = () => {
 
   // Refresh the jwt token automatically
   useJwtRefresh(authToken, setAuthToken);
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiamVzc2x5bm45IiwiYSI6ImNsMWg3NWp1bjAyY2QzamxpcDl6aTNpZncifQ.dSLXsFNzpP8EBuC_Cf1AUw';
+  const mapContainer = useRef(null);
+  const [lng, setLng] = useState(-70.9);
+  const [lat, setLat] = useState(42.35);
+  const [zoom, setZoom] = useState(9);
+
+  useEffect(() => {
+    if (mapContainer.current && !map) {
+      const map = new mapboxgl.Map({
+        container: ref.current,
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [lng, lat],
+        zoom: zoom
+      });
+      setMap(map);
+    }
+  }, [mapContainer, map]);
 
   // api instance
   const api = useApi(authToken);

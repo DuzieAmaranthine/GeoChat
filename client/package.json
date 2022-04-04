@@ -9,11 +9,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "assert": "^2.0.0",
     "autoprefixer": "^10.4.0",
     "parcel": "^2.0.1",
+    "path-browserify": "^1.0.1",
     "postcss": "^8.3.11",
     "process": "^0.11.10",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^2.2.19",
+    "url": "^0.11.0",
+    "util": "^0.12.4"
   },
   "dependencies": {
     "mapbox-gl": "^2.7.0",

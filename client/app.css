@@ -280,13 +280,18 @@ body {
   justify-content: flex-end;
 }
 
+.err {
+  color: white;
+  font-size: large;
+}
+
 
 /* Map */
 
-/* #map {
+#map {
   width: 100%;
   height: 70%;
-} */
+}
 
 .inst {
   display: flex;
