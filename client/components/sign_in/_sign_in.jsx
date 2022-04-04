@@ -40,21 +40,23 @@ export const SignIn = () => {
     <div>
       <h1 className="Title">GeoChat</h1>
       <div className="my-sign">
-        <div className="w-96">
-          <Paper>
-            <div>Email</div>
-            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <div>Password</div>
-            <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <div className="button-div">
-              <Button type="button" onClick={goToSignUp}>
-                Sign up
-              </Button>
-              <Button type="button" onClick={signIn}>
-                Sign in
-              </Button>
-            </div>
-          </Paper>
+        <div className="input-div">
+          <div className="w-96">
+            <Paper>
+              <div className="in">Email</div>
+              <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <div className="in">Password</div>
+              <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <div className="button-div">
+                <Button type="button" onClick={goToSignUp}>
+                  Sign up
+                </Button>
+                <Button type="button" onClick={signIn}>
+                  Sign in
+                </Button>
+              </div>
+            </Paper>
+          </div>
         </div>
       </div>
     </div>

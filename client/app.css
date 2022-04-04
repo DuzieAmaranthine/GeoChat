@@ -25,21 +25,12 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-image: url("https://i.ibb.co/Vv8fJvY/cherry-Night-Flip.jpg");
+  background-image: url("https://images.hdqwalls.com/download/plant-blossom-flower-8k-0m-7680x4320.jpg");
   background-color: var(--vDarkBlue);
   background-size: cover;
 }
 
-.my-sign {
-  position: absolute;
-  background: rgb(1,0,57);
-  background: linear-gradient(135deg, rgba(1,0,57,1) 25%, rgba(1,41,168,1) 46%, rgba(3,18,104,1) 63%, rgba(1,0,57,1) 86%);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 2px 2px 8px 3px var(--softRed);
-}
+
 
 .button-div {
   display: flex;
@@ -306,6 +297,25 @@ body {
 
 
 /* Sign-In & Sign-Up */
+.my-sign {
+  position: absolute;
+  background: rgb(1,0,57);
+  background: linear-gradient(135deg, rgba(1,0,57,1) 25%, rgba(1,41,168,1) 46%, rgba(3,18,104,1) 63%, rgba(1,0,57,1) 86%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 2px 2px 8px 3px var(--softRed);
+}
+
+.in  {
+  color: white;
+}
+
+.input-div {
+  color: black;
+}
+
 .sign-in-container {
   background-color: #010039;
 }
